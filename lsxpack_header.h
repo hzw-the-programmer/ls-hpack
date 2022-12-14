@@ -64,7 +64,11 @@ struct lsxpack_header
 typedef struct lsxpack_header lsxpack_header_t;
 
 
+#if 1 // hezhiwen
+static void
+#else
 static inline void
+#endif
 lsxpack_header_set_idx(lsxpack_header_t *hdr, int hpack_idx,
                        const char *val, size_t val_len)
 {
@@ -77,7 +81,11 @@ lsxpack_header_set_idx(lsxpack_header_t *hdr, int hpack_idx,
 }
 
 
+#if 1 // hezhiwen
+static void
+#else
 static inline void
+#endif
 lsxpack_header_set_qpack_idx(lsxpack_header_t *hdr, int qpack_idx,
                        const char *val, size_t val_len)
 {
@@ -91,7 +99,11 @@ lsxpack_header_set_qpack_idx(lsxpack_header_t *hdr, int qpack_idx,
 }
 
 
+#if 1 // hezhiwen
+static void
+#else
 static inline void
+#endif
 lsxpack_header_set_offset(lsxpack_header_t *hdr, const char *buf,
                           size_t name_offset, size_t name_len,
                           size_t val_len)
@@ -108,7 +120,11 @@ lsxpack_header_set_offset(lsxpack_header_t *hdr, const char *buf,
 }
 
 
+#if 1 // hezhiwen
+static void
+#else
 static inline void
+#endif
 lsxpack_header_set_offset2(lsxpack_header_t *hdr, const char *buf,
                            size_t name_offset, size_t name_len,
                            size_t val_offset, size_t val_len)
@@ -125,7 +141,11 @@ lsxpack_header_set_offset2(lsxpack_header_t *hdr, const char *buf,
 }
 
 
+#if 1 // hezhiwen
+static void
+#else
 static inline void
+#endif
 lsxpack_header_prepare_decode(lsxpack_header_t *hdr,
                               char *out, size_t offset, size_t len)
 {
@@ -140,22 +160,38 @@ lsxpack_header_prepare_decode(lsxpack_header_t *hdr,
 }
 
 
+#if 1 // hezhiwen
+static const char *
+#else
 static inline const char *
+#endif
 lsxpack_header_get_name(const lsxpack_header_t *hdr)
 {
     return (hdr->name_len)? hdr->buf + hdr->name_offset : NULL;
 }
 
 
+#if 1 // hezhiwen
+static const char *
+#else
 static inline const char *
+#endif
 lsxpack_header_get_value(const lsxpack_header_t *hdr)
 {   return hdr->buf + hdr->val_offset;  }
 
+#if 1 // hezhiwen
+static size_t
+#else
 static inline size_t
+#endif
 lsxpack_header_get_dec_size(const lsxpack_header_t *hdr)
 {   return hdr->name_len + hdr->val_len + hdr->dec_overhead;    }
 
+#if 1 // hezhiwen
+static void
+#else
 static inline void
+#endif
 lsxpack_header_mark_val_changed(lsxpack_header_t *hdr)
 {
     hdr->flags = (enum lsxpack_flag)(hdr->flags &
